@@ -1,29 +1,9 @@
-# SVG to webfont converter for Grunt
+# Icon font generator based on [grunt-webfont](https://github.com/FontCustom/grunt-webfont)
+A template for generating icon fonts. Work in progress.
 
-[![Powered by You](http://sapegin.github.io/powered-by-you/badge.svg)](http://sapegin.github.io/powered-by-you/)
-[![Build Status](https://travis-ci.org/sapegin/grunt-webfont.svg)](https://travis-ci.org/sapegin/grunt-webfont)
-[![Downloads on npm](http://img.shields.io/npm/dm/grunt-webfont.svg?style=flat)](https://www.npmjs.com/package/grunt-webfont)
 
-**grunt-webfont needs a new project maintainer: [let me know](http://sapegin.me/) if you want to help.**
-
-Generate custom icon webfonts from SVG files via Grunt. Inspired by [Font Custom](https://github.com/FontCustom/fontcustom).
-
-This task will make all you need to use font-face icon on your website: font in all needed formats, CSS/Sass/Less/Stylus and HTML demo page.
-
-## Features
-
-* Works on Mac, Windows and Linux.
-* Very flexible.
-* Supports all web font formats: WOFF, WOFF2, EOT, TTF and SVG.
-* Semantic: uses [Unicode private use area](http://bit.ly/ZnkwaT).
-* [Cross-browser](http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax/): IE8+.
-* BEM or Bootstrap output CSS style.
-* CSS preprocessors support.
-* Data:uri embedding.
-* Ligatures.
-* HTML preview.
-* Custom templates.
-
+# Setup instructions 
+Instructions below are from [grunt-webfont](https://github.com/FontCustom/grunt-webfont)
 
 ## Installation
 
