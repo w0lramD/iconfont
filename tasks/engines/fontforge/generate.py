@@ -9,6 +9,7 @@ from distutils.spawn import find_executable
 
 args = json.load(sys.stdin)
 
+
 f = fontforge.font()
 f.encoding = 'UnicodeFull'
 f.copyright = ''
@@ -67,10 +68,16 @@ for dirname, dirnames, filenames in os.walk(args['inputDir']):
 				glyph = f.createChar(cp, str(name))
 			glyph.importOutlines(filePath)
 
-			if args['normalize']:
+
+			if args['proportional'] and not name.endswith("-mono"):
 				glyph.left_side_bearing = glyph.right_side_bearing = 0
+				glyph.vwidth = glyph.width
 			else:
-				glyph.width = args['fontHeight']
+				if args['normalize']:
+					glyph.left_side_bearing = glyph.right_side_bearing = 0
+				else:
+					glyph.width = args['fontHeight']
+
 
 			if args['round']:
 				glyph.round(int(args['round']))
