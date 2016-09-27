@@ -1,9 +1,7 @@
 # Icon font generator based on [grunt-webfont](https://github.com/FontCustom/grunt-webfont)
 A template for generating icon fonts. Work in progress.
 
-
-# Setup instructions 
-Instructions below are from [grunt-webfont](https://github.com/FontCustom/grunt-webfont)
+Setup instructions below are from [grunt-webfont](https://github.com/FontCustom/grunt-webfont)
 
 ## Installation
 
