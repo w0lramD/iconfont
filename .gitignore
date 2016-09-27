@@ -2,3 +2,4 @@ node_modules
 test/tmp
 .cache
 Changelog.md
+.DS_Store

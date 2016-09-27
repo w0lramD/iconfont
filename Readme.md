@@ -636,9 +636,6 @@ Check the following...
 * `autoHint` also adjusts the font file and can cause your font to look different to the SVG, so you could try switching it off (though it may make windows view of the font worse).
 * If you get stderr maxBuffer exceeded warning message, fontforge probably logged a lot of warning messages. To see this warnings run grunt in verbose mode `grunt --verbose`. To go over this warning you can try to increase buffer size by [execMaxBuffer](#execMaxBuffer).
 
-## Changelog
-
-The changelog can be found on the [Releases page](https://github.com/sapegin/grunt-webfont/releases).
 
 ## License
 

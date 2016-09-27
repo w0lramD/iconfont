@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%= fontFamilyName %></title>
+    <style>
+        body {
+            margin:0;
+            padding:50px;
+            color:#222;
+            font-family: sans-serif;
+            line-height: 1;
+            font-size: 20px;
+
+        }
+
+        .container {
+            margin: 5px 0;
+            padding: 5px 0;
+            clear: right;
+        }
+
+        .charInput {
+            font-family: "<%= fontFamilyName %>";
+            display: inline;
+            width: 3em;
+            font-size: 18px;
+        }
+
+        .name {
+            display: inline-block;
+            width: 300px;
+        }
+
+        .measure {
+            font-family: "<%= fontFamilyName %>";
+            display: inline-block;
+            width: 50px; height: 50px;
+            font-size: 50px;
+            text-align: center;
+            border: 1px solid #eee;
+            float: right;
+            background: url("./guides.png");
+            background-size: contain;
+            box-sizing: border-box;
+            line-height: 1;
+        }
+
+        .measure > span {
+
+            opacity: .5;
+        }
+
+        .unicode {
+            display: inline-block;
+            padding: 0 20px;
+            color: #9ab;
+            font-size: 0.7em;
+        }
+
+        <%= styles %>
+    </style>
+
+    <script type="text/javascript">
+        function leftPadString( s ) {
+            while (s.length<4) {
+                s += "0"+s;
+            }
+            return "\\"+s;
+        }
+    </script>
+</head>
+<body>
+
+<h1><%= fontFamilyName %><% if (version) { %><small>version <%= version %></small><% } %></h1>
+
+<div class="icons" id="icons">
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { var glyph = glyphs[glyphIdx] %>
+    <div class="container" data-name="<%= glyph %>">
+        <span class="measure"><span><%= String.fromCharCode(parseInt(codepoints[glyphIdx], 16)) %></span></span>
+        <span class="<%= baseClass %> <%= classPrefix %><%= glyph %>"></span>
+        <span class="name"><%= classPrefix %><%= glyph %></span>
+        <input type="text" class="charInput" value="<%= String.fromCharCode(parseInt(codepoints[glyphIdx], 16)) %>" />
+        <span class="unicode"><%= String.fromCharCode(parseInt(codepoints[glyphIdx], 16)) %> &nbsp; &amp;#x<%= codepoints[glyphIdx].toUpperCase() %></span>
+    </div>
+    <% } %>
+</div>
+
+<% if (addLigatures) { %>
+<div class="ligature-icons" style="display:none">
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { var glyph = glyphs[glyphIdx]; %>
+    <%= glyph %>
+    <% } %>
+</div>
+<% } %>
+
+<h1>Usage</h1>
+<pre><code>&lt;i class=&quot;<%= baseClass ? baseClass + ' ' : '' %><%= classPrefix %><span id="name">name</span>&quot;&gt;&lt;/i&gt;</code></pre>
+<% if (addLigatures) { %>
+<pre><code>&lt;i class=&quot;ligature-icons&quot;&gt;<span id="name2">name</span>&lt;/i&gt;</code></pre>
+<% } %>
+
+
+<script>
+
+    (function() {
+        document.getElementById('icons').onclick = function(e) {
+            e = e || window.event;
+            var name = e.target.getAttribute('data-name') || e.target.parentNode.getAttribute('data-name');
+            document.getElementById('name').innerHTML = name;
+            <% if (addLigatures) { %>document.getElementById('name2').innerHTML = name;<% } %>
+        }
+    })();
+</script>
+</body>
+</html>
