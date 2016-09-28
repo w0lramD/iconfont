@@ -13,14 +13,19 @@ args = json.load(sys.stdin)
 f = fontforge.font()
 f.encoding = 'UnicodeFull'
 f.copyright = ''
-f.design_size = 16
+f.design_size = 20
 f.em = args['fontHeight']
 f.descent = args['descent']
 f.ascent = args['fontHeight'] - args['descent']
+# f.hhea_linegap = 0
+f.hhea_ascent = 70
+
 if args['version']:
 	f.version = args['version']
 if args['normalize']:
 	f.autoWidth(0, 0, args['fontHeight'])
+
+
 
 KERNING = 15
 
@@ -69,14 +74,10 @@ for dirname, dirnames, filenames in os.walk(args['inputDir']):
 			glyph.importOutlines(filePath)
 
 
-			if args['proportional'] and not name.endswith("-mono"):
+			if args['normalize'] or name.endswith("-mono"):
 				glyph.left_side_bearing = glyph.right_side_bearing = 0
-				glyph.vwidth = glyph.width
 			else:
-				if args['normalize']:
-					glyph.left_side_bearing = glyph.right_side_bearing = 0
-				else:
-					glyph.width = args['fontHeight']
+				glyph.width = args['fontHeight']
 
 
 			if args['round']:

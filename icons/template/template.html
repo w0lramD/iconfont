@@ -11,37 +11,46 @@
             font-family: sans-serif;
             line-height: 1;
             font-size: 20px;
+        }
 
+        .name, .measure, .unicode, .charInput, .classInput {
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .container {
             margin: 5px 0;
-            padding: 5px 0;
+            padding: 0 0;
+            height: 50px;
             clear: right;
+            box-sizing: border-box;
         }
 
         .charInput {
             font-family: "<%= fontFamilyName %>";
-            display: inline;
             width: 3em;
             font-size: 18px;
+            margin-left: 50px;
+            min-height: 24px;
+        }
+
+        .classInput {
+            width: 15em;
+            font-size: 12px;
+            min-height: 24px;
         }
 
         .name {
-            display: inline-block;
             width: 300px;
         }
 
         .measure {
             font-family: "<%= fontFamilyName %>";
-            display: inline-block;
-            width: 50px; height: 50px;
+            width: 50px; height: 50px; 
+            margin-right: 50px;
             font-size: 50px;
             text-align: center;
-            border: 1px solid #eee;
-            float: right;
-            background: url("./guides.png");
-            background-size: contain;
+            background: url("./guides.png") #eef9ff top left;
             box-sizing: border-box;
             line-height: 1;
         }
@@ -50,11 +59,34 @@
 
             opacity: .5;
         }
+        
+        .sample {
+            padding: 0 10px;
+        }
+
+        .sample > .label {
+            color: #ddd;
+        }
+
+        .sample.big {
+            font-size: 36px;
+        }
+
+        .sample.medium {
+            font-size: 20px;
+        }
+
+        .sample.small {
+            font-size: 16px;
+        }
+
+        .sample.tiny {
+            font-size: 12px;
+        }
 
         .unicode {
-            display: inline-block;
             padding: 0 20px;
-            color: #9ab;
+            color: #999;
             font-size: 0.7em;
         }
 
@@ -75,13 +107,18 @@
 <h1><%= fontFamilyName %><% if (version) { %><small>version <%= version %></small><% } %></h1>
 
 <div class="icons" id="icons">
-    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { var glyph = glyphs[glyphIdx] %>
+    <% glyphs = glyphs.sort( function(a, b) { console.log( codepointsMap[a], a, b ); return codepointsMap[a] - codepointsMap[b];  } );%>
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { var glyph = glyphs[glyphIdx]; %>
+    <% var codeDec = codepointsMap[ glyphs[glyphIdx] ]; var codeHex = codeDec.toString(16); %>
     <div class="container" data-name="<%= glyph %>">
-        <span class="measure"><span><%= String.fromCharCode(parseInt(codepoints[glyphIdx], 16)) %></span></span>
-        <span class="<%= baseClass %> <%= classPrefix %><%= glyph %>"></span>
-        <span class="name"><%= classPrefix %><%= glyph %></span>
+        <span class="measure"><span><%= String.fromCharCode( codeDec ) %></span></span>
+        <span class="sample big"><span class="<%= baseClass %> <%= classPrefix %><%= glyph %>"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="<%= baseClass %> <%= classPrefix %><%= glyph %>"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="<%= baseClass %> <%= classPrefix %><%= glyph %>"></span><span class="label">abg</span></span>
+
         <input type="text" class="charInput" value="<%= String.fromCharCode(parseInt(codepoints[glyphIdx], 16)) %>" />
-        <span class="unicode"><%= String.fromCharCode(parseInt(codepoints[glyphIdx], 16)) %> &nbsp; &amp;#x<%= codepoints[glyphIdx].toUpperCase() %></span>
+        <input type="text" class="classInput" value=".<%= classPrefix %><%= glyph %>" />
+        <span class="unicode">Char: '<%= String.fromCharCode( codeDec ) %>' &nbsp; Dec: <%= codeDec %> &nbsp; Hex: &amp;#x<%= codeHex.toUpperCase() %> </span>
     </div>
     <% } %>
 </div>

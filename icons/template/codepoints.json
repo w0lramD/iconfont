@@ -1,10 +1,13 @@
 {
-    "left-medium": 123,
-    "left-large": 97,
-    "left-small-mono": 98,
-    "left-small": 99,
-    "odnoklassniki": 100,
-    "pinterest": 101,
-    "plusone": 102,
-    "single": 103
+    "normal": 48,
+    "smaller": 49,
+    "bigger": 50,
+    "fit-two-h": 51,
+    "fit-two-v": 52,
+    "fit-three-h": 53,
+    "fit-three-v": 54,
+    "fit-mouse": 55,
+    "fit-diagonal": 56,
+    "adjust-bigger": 57,
+    "adjust-custom": 58
 }

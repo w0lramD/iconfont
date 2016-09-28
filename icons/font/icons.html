@@ -11,37 +11,46 @@
             font-family: sans-serif;
             line-height: 1;
             font-size: 20px;
+        }
 
+        .name, .measure, .unicode, .charInput, .classInput {
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .container {
             margin: 5px 0;
-            padding: 5px 0;
+            padding: 0 0;
+            height: 50px;
             clear: right;
+            box-sizing: border-box;
         }
 
         .charInput {
             font-family: "icons";
-            display: inline;
             width: 3em;
             font-size: 18px;
+            margin-left: 50px;
+            min-height: 24px;
+        }
+
+        .classInput {
+            width: 15em;
+            font-size: 12px;
+            min-height: 24px;
         }
 
         .name {
-            display: inline-block;
             width: 300px;
         }
 
         .measure {
             font-family: "icons";
-            display: inline-block;
-            width: 50px; height: 50px;
+            width: 50px; height: 50px; 
+            margin-right: 50px;
             font-size: 50px;
             text-align: center;
-            border: 1px solid #eee;
-            float: right;
-            background: url("./guides.png");
-            background-size: contain;
+            background: url("./guides.png") #eef9ff top left;
             box-sizing: border-box;
             line-height: 1;
         }
@@ -50,11 +59,34 @@
 
             opacity: .5;
         }
+        
+        .sample {
+            padding: 0 10px;
+        }
+
+        .sample > .label {
+            color: #ddd;
+        }
+
+        .sample.big {
+            font-size: 36px;
+        }
+
+        .sample.medium {
+            font-size: 20px;
+        }
+
+        .sample.small {
+            font-size: 16px;
+        }
+
+        .sample.tiny {
+            font-size: 12px;
+        }
 
         .unicode {
-            display: inline-block;
             padding: 0 20px;
-            color: #9ab;
+            color: #999;
             font-size: 0.7em;
         }
 
@@ -71,7 +103,7 @@ font-weight:normal;
 font-style:normal;
 }
 
-.oricon {
+.icon {
 
     font-family:"icons";
 
@@ -89,23 +121,58 @@ font-style:normal;
 /* Icons */
 
 
-.oricon-odnoklassniki:before {
-  content:"\64";
+.icon_adjust-bigger:before {
+  content:"\39";
 }
 
 
-.oricon-pinterest:before {
-  content:"\65";
+.icon_adjust-custom:before {
+  content:"\3a";
 }
 
 
-.oricon-plusone:before {
-  content:"\66";
+.icon_bigger:before {
+  content:"\32";
 }
 
 
-.oricon-single:before {
-  content:"\67";
+.icon_fit-diagonal:before {
+  content:"\38";
+}
+
+
+.icon_fit-mouse:before {
+  content:"\37";
+}
+
+
+.icon_fit-three-h:before {
+  content:"\35";
+}
+
+
+.icon_fit-three-v:before {
+  content:"\36";
+}
+
+
+.icon_fit-two-h:before {
+  content:"\33";
+}
+
+
+.icon_fit-two-v:before {
+  content:"\34";
+}
+
+
+.icon_normal:before {
+  content:"\30";
+}
+
+
+.icon_smaller:before {
+  content:"\31";
 }
     </style>
 
@@ -124,36 +191,137 @@ font-style:normal;
 
 <div class="icons" id="icons">
     
-    <div class="container" data-name="odnoklassniki">
-        <span class="measure"><span>d</span></span>
-        <span class="oricon oricon-odnoklassniki"></span>
-        <span class="name">oricon-odnoklassniki</span>
-        <input type="text" class="charInput" value="d" />
-        <span class="unicode">d &nbsp; &amp;#x64</span>
+    
+    
+    <div class="container" data-name="normal">
+        <span class="measure"><span>0</span></span>
+        <span class="sample big"><span class="icon icon_normal"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_normal"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_normal"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="9" />
+        <input type="text" class="classInput" value=".icon_normal" />
+        <span class="unicode">Char: '0' &nbsp; Dec: 48 &nbsp; Hex: &amp;#x30 </span>
     </div>
     
-    <div class="container" data-name="pinterest">
-        <span class="measure"><span>e</span></span>
-        <span class="oricon oricon-pinterest"></span>
-        <span class="name">oricon-pinterest</span>
-        <input type="text" class="charInput" value="e" />
-        <span class="unicode">e &nbsp; &amp;#x65</span>
+    
+    <div class="container" data-name="smaller">
+        <span class="measure"><span>1</span></span>
+        <span class="sample big"><span class="icon icon_smaller"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_smaller"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_smaller"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value=":" />
+        <input type="text" class="classInput" value=".icon_smaller" />
+        <span class="unicode">Char: '1' &nbsp; Dec: 49 &nbsp; Hex: &amp;#x31 </span>
     </div>
     
-    <div class="container" data-name="plusone">
-        <span class="measure"><span>f</span></span>
-        <span class="oricon oricon-plusone"></span>
-        <span class="name">oricon-plusone</span>
-        <input type="text" class="charInput" value="f" />
-        <span class="unicode">f &nbsp; &amp;#x66</span>
+    
+    <div class="container" data-name="bigger">
+        <span class="measure"><span>2</span></span>
+        <span class="sample big"><span class="icon icon_bigger"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_bigger"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_bigger"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="2" />
+        <input type="text" class="classInput" value=".icon_bigger" />
+        <span class="unicode">Char: '2' &nbsp; Dec: 50 &nbsp; Hex: &amp;#x32 </span>
     </div>
     
-    <div class="container" data-name="single">
-        <span class="measure"><span>g</span></span>
-        <span class="oricon oricon-single"></span>
-        <span class="name">oricon-single</span>
-        <input type="text" class="charInput" value="g" />
-        <span class="unicode">g &nbsp; &amp;#x67</span>
+    
+    <div class="container" data-name="fit-two-h">
+        <span class="measure"><span>3</span></span>
+        <span class="sample big"><span class="icon icon_fit-two-h"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_fit-two-h"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_fit-two-h"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="8" />
+        <input type="text" class="classInput" value=".icon_fit-two-h" />
+        <span class="unicode">Char: '3' &nbsp; Dec: 51 &nbsp; Hex: &amp;#x33 </span>
+    </div>
+    
+    
+    <div class="container" data-name="fit-two-v">
+        <span class="measure"><span>4</span></span>
+        <span class="sample big"><span class="icon icon_fit-two-v"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_fit-two-v"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_fit-two-v"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="7" />
+        <input type="text" class="classInput" value=".icon_fit-two-v" />
+        <span class="unicode">Char: '4' &nbsp; Dec: 52 &nbsp; Hex: &amp;#x34 </span>
+    </div>
+    
+    
+    <div class="container" data-name="fit-three-h">
+        <span class="measure"><span>5</span></span>
+        <span class="sample big"><span class="icon icon_fit-three-h"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_fit-three-h"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_fit-three-h"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="5" />
+        <input type="text" class="classInput" value=".icon_fit-three-h" />
+        <span class="unicode">Char: '5' &nbsp; Dec: 53 &nbsp; Hex: &amp;#x35 </span>
+    </div>
+    
+    
+    <div class="container" data-name="fit-three-v">
+        <span class="measure"><span>6</span></span>
+        <span class="sample big"><span class="icon icon_fit-three-v"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_fit-three-v"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_fit-three-v"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="6" />
+        <input type="text" class="classInput" value=".icon_fit-three-v" />
+        <span class="unicode">Char: '6' &nbsp; Dec: 54 &nbsp; Hex: &amp;#x36 </span>
+    </div>
+    
+    
+    <div class="container" data-name="fit-mouse">
+        <span class="measure"><span>7</span></span>
+        <span class="sample big"><span class="icon icon_fit-mouse"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_fit-mouse"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_fit-mouse"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="3" />
+        <input type="text" class="classInput" value=".icon_fit-mouse" />
+        <span class="unicode">Char: '7' &nbsp; Dec: 55 &nbsp; Hex: &amp;#x37 </span>
+    </div>
+    
+    
+    <div class="container" data-name="fit-diagonal">
+        <span class="measure"><span>8</span></span>
+        <span class="sample big"><span class="icon icon_fit-diagonal"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_fit-diagonal"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_fit-diagonal"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="4" />
+        <input type="text" class="classInput" value=".icon_fit-diagonal" />
+        <span class="unicode">Char: '8' &nbsp; Dec: 56 &nbsp; Hex: &amp;#x38 </span>
+    </div>
+    
+    
+    <div class="container" data-name="adjust-bigger">
+        <span class="measure"><span>9</span></span>
+        <span class="sample big"><span class="icon icon_adjust-bigger"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_adjust-bigger"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_adjust-bigger"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="0" />
+        <input type="text" class="classInput" value=".icon_adjust-bigger" />
+        <span class="unicode">Char: '9' &nbsp; Dec: 57 &nbsp; Hex: &amp;#x39 </span>
+    </div>
+    
+    
+    <div class="container" data-name="adjust-custom">
+        <span class="measure"><span>:</span></span>
+        <span class="sample big"><span class="icon icon_adjust-custom"></span><span class="label">abg</span></span>
+        <span class="sample medium"><span class="icon icon_adjust-custom"></span><span class="label">abg</span></span>
+        <span class="sample tiny"><span class="icon icon_adjust-custom"></span><span class="label">abg</span></span>
+
+        <input type="text" class="charInput" value="1" />
+        <input type="text" class="classInput" value=".icon_adjust-custom" />
+        <span class="unicode">Char: ':' &nbsp; Dec: 58 &nbsp; Hex: &amp;#x3A </span>
     </div>
     
 </div>
@@ -161,7 +329,7 @@ font-style:normal;
 
 
 <h1>Usage</h1>
-<pre><code>&lt;i class=&quot;oricon oricon-<span id="name">name</span>&quot;&gt;&lt;/i&gt;</code></pre>
+<pre><code>&lt;i class=&quot;icon icon_<span id="name">name</span>&quot;&gt;&lt;/i&gt;</code></pre>
 
 
 

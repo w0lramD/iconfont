@@ -332,6 +332,9 @@ module.exports = function(grunt) {
 			_.each(o.glyphs, function(name) {
 				codepoints.push(o.codepoints[name].toString(16));
 			});
+
+			o.codepointsMap = o.codepoints;
+
 			o.codepoints = codepoints;
 
 			// Prepage glyph names to use as CSS classes

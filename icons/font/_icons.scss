@@ -11,7 +11,7 @@ font-weight:normal;
 font-style:normal;
 }
 
-.oricon {
+.icon {
 
     font-family:"icons";
 
@@ -29,21 +29,56 @@ font-style:normal;
 // Icons
 
 
-.oricon-odnoklassniki:before {
-  content:"\64";
+.icon_adjust-bigger:before {
+  content:"\39";
 }
 
 
-.oricon-pinterest:before {
-  content:"\65";
+.icon_adjust-custom:before {
+  content:"\3a";
 }
 
 
-.oricon-plusone:before {
-  content:"\66";
+.icon_bigger:before {
+  content:"\32";
 }
 
 
-.oricon-single:before {
-  content:"\67";
+.icon_fit-diagonal:before {
+  content:"\38";
+}
+
+
+.icon_fit-mouse:before {
+  content:"\37";
+}
+
+
+.icon_fit-three-h:before {
+  content:"\35";
+}
+
+
+.icon_fit-three-v:before {
+  content:"\36";
+}
+
+
+.icon_fit-two-h:before {
+  content:"\33";
+}
+
+
+.icon_fit-two-v:before {
+  content:"\34";
+}
+
+
+.icon_normal:before {
+  content:"\30";
+}
+
+
+.icon_smaller:before {
+  content:"\31";
 }

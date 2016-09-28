@@ -1,4 +1,4 @@
 {
-  "baseClass": "oricon",
-  "classPrefix": "oricon-"
+  "baseClass": "icon",
+  "classPrefix": "icon_"
 }

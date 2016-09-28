@@ -17,10 +17,10 @@ module.exports = function(grunt) {
 				options: {
 					hashes: false,
 					type: 'eot,woff,ttf,svg',
-					startCodepoint: 0x0061,
+					startCodepoint: 0x0021,
 					fontHeight: 1000,
-					descent: 220,
-					proportional: true,
+					descent: 210,
+					normalize: false,
 					stylesheets: ['css', 'scss'],
 					codepointsFile: "./icons/template/codepoints.json",
 
