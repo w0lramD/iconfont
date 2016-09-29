@@ -25,8 +25,13 @@ module.exports = function(grunt) {
 					codepointsFile: "./icons/template/codepoints.json",
 
 					template: "./icons/template/template.css",
-					htmlDemoTemplate: "./icons/template/template.html"
+					htmlDemoTemplate: "./icons/template/template.html",
 
+					destCss: "./icons/font/css/",
+					destScss: "./icons/font/css/scss/",
+
+					htmlDemo: true,
+					destHtml: "./icons/demo/"
 				}
 			}
 		},
