@@ -30,7 +30,7 @@ function rescale( g, board ) {
 
 	var t = (proportion-1)/2;
 	var canvasSize = 1000;
-	var targetSize = 680 + (212 * t);
+	var targetSize = 680 + (212 * Math.sqrt(t));
 	var shift = 50;
 
 	var sc = 100 * (targetSize / scaleBy );
